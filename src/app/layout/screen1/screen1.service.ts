@@ -7,11 +7,11 @@ import {User} from 'src/app/Model/user';
   providedIn: 'root'
 })
 export class Screen1Service {
-  url = 'https://reqres.in/api/register';
+  url = 'https://reqres.in/api/users';
 
   constructor(private httpClient: HttpClient) { }
 
-  public createUser(data: User){
-    return this.httpClient.post(this.url, data);
+  public createUser(user: User){
+    return this.httpClient.post(this.url, user);
   } 
 }

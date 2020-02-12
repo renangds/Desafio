@@ -11,14 +11,14 @@ import {User} from 'src/app/Model/user';
 export class Screen2Component implements OnInit {
 
   public users: User[];
-  public static users2: User[];
-  public static control: boolean = false;
   public columns: string[] = ['Id', 'Nome Completo', 'Foto', 'Editar'];
 
-  constructor(private screenService: Screen2Service) { }
+  constructor(private screenService: Screen2Service) {
+    this.users = this.screenService.returnUsers();
+  }
 
   ngOnInit() {
-    this.getUsers();
+    
   }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
@@ -28,16 +28,22 @@ export class Screen2Component implements OnInit {
   }
 
   public getUsers(){
+    /*
     this.screenService.getUsers().subscribe(res => {
       this.users = res['data'];
-      Screen2Component.users2 = res['data'];
     })
+    */
+
+    return this.screenService.returnUsers();
   }
 
   public deleteUser(id: number){
+    /*
     this.screenService.deleteUser(id).subscribe( res => {
       this.users = this.users.filter(value => value.id !== id);
     })
+    */
+   this.users = this.screenService.deleteListUsers(id);
   }
 
   public createUser(){

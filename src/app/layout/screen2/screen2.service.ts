@@ -11,8 +11,33 @@ import {map} from 'rxjs/operators';
 
 export class Screen2Service {
   url = 'https://reqres.in/api/users';
+  users: User[];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    console.log('olá');
+    this.users = this.getListUsers();
+  }
+
+  public returnUsers(){
+    return this.users;
+  }
+
+  public getListUsers(){
+    this.getUsers().subscribe(res => {
+      this.users = res['data'];
+    })
+
+    return this.users;
+  }
+
+  public deleteListUsers(id: number){
+    this.deleteUser(id).subscribe( res => {
+      this.users = this.users.filter(value => value.id !== id);
+    })
+    console.log(this.users.length);
+
+    return this.users;
+  }
 
   public getUsers(){
     //this.httpClient.get<User>(this.url).pipe(map((res: any) => res.json()));
@@ -23,7 +48,7 @@ export class Screen2Service {
     return this.httpClient.delete(this.url + '/' + id);
   }
 
-  public createUser(data: User){
+  public createUser(data: object){
     return this.httpClient.post(this.url + '/register', data);
   }
 }
