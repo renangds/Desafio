@@ -41,3 +41,16 @@
 .w-100 {
     width: 100%;
 }
+
+@media screen and (max-width: 360px){
+    .login-page{
+        .content{
+            .app-name{
+
+            }
+            .login-form{
+                width: 80%;
+            }
+        }
+    }
+}

@@ -23,10 +23,6 @@ export class Screen2Component implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
-  public static test(){
-
-  }
-
   public getUsers(){
     /*
     this.screenService.getUsers().subscribe(res => {
@@ -44,9 +40,5 @@ export class Screen2Component implements OnInit {
     })
     */
    this.users = this.screenService.deleteListUsers(id);
-  }
-
-  public createUser(){
-    
   }
 }

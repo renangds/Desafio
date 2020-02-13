@@ -8,7 +8,7 @@
             <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput [(ngModel)]="name" placeholder="Nome" type="text" name="name" >
+                        <input matInput [(ngModel)]="name" placeholder="Nome" type="text" name="name">
                     </mat-form-field>
                 </div>
             </div>
@@ -21,7 +21,10 @@
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
-                    <button mat-raised-button color="primary" class="w-100" [disabled]="job === '' || name === ''" (click)="registerUser()">Cadastrar</button>
+                    <button style='margin-bottom: 5px;' mat-raised-button color="primary" class="w-100" [disabled]="job === '' || name === ''" (click)="registerUser()">Cadastrar</button>
+                    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/screen2']">
+                        <button mat-raised-button color="primary" class="w-100" [disabled]="job === '' || name === ''">Editar</button>
+                    </a>
                 </div>
             </div>
 
