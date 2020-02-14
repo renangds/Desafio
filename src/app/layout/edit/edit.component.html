@@ -20,7 +20,7 @@
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
-                    <button style='margin-bottom: 5px;' mat-raised-button color="primary" class="w-100" [disabled]="job === ''" (click)="editJobUser()">Editar</button>
+                    <button routerLink='/screen2' routerLinkActive="active" style='margin-bottom: 5px;' mat-raised-button color="primary" class="w-100" [disabled]="job === ''" (click)="editJobUser()">Editar</button>
                 </div>
             </div>
 

@@ -24,7 +24,7 @@
     <th mat-header-cell *matHeaderCellDef style='text-align: center;'> {{columns[3]}} </th>
     <td mat-cell *matCellDef="let element"> 
       <button style='margin-right: 10px;' mat-raised-button color='primary' (click)="deleteUser(element.id)">Excluir</button> 
-        <button routerLink='/edit/{{element.id}}' routerLinkActive="active" mat-raised-button color='accent' [disabled]="element.job == undefined" name="button"> 
+        <button routerLink='/edit/{{element.id}}' routerLinkActive="active" mat-raised-button color='accent' name="button"> 
           Editar
         </button> 
     </td>
