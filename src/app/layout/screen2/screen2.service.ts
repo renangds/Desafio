@@ -21,6 +21,18 @@ export class Screen2Service {
     return this.users;
   }
 
+  public putUser(newJob: string, id: number){
+    let user = this.getUser(id);
+
+    user.job = newJob;
+
+    this.httpClient.put(this.url + '/' + id, user).subscribe();
+  }
+
+  public getUser(id: number){
+    return this.users.filter(x => x.id == id)[0];
+  }
+
   public getListUsers(){
     this.getUsers(1).subscribe(res => {
       this.users = res['data'];
