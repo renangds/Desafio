@@ -12,9 +12,18 @@ export class Screen2Service {
   url = 'https://reqres.in/api/users';
   page = '?page='
   users: User[];
+  deleteId: number;
 
   constructor(private httpClient: HttpClient) {
     this.users = this.getListUsers();
+  }
+
+  public setDeleteId(deleteId: number): void{
+    this.deleteId = deleteId;
+  }
+
+  public getDeleteId(): number{
+    return this.deleteId;
   }
 
   public returnUsers(){
@@ -51,7 +60,6 @@ export class Screen2Service {
     this.deleteUser(id).subscribe( res => {
       this.users = this.users.filter(value => value.id !== id);
     })
-    console.log(this.users.length);
 
     return this.users;
   }

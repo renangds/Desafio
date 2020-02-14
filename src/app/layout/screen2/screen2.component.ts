@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Screen2Service} from './screen2.service';
 import {User} from 'src/app/Model/user';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {ModalDeleteComponent} from '../modal-delete/modal-delete.component';
 
 @Component({
   selector: 'app-screen2',
@@ -13,8 +15,19 @@ export class Screen2Component implements OnInit {
   public users: User[];
   public columns: string[] = ['Id', 'Nome Completo', 'Foto', 'Opções'];
 
-  constructor(private screenService: Screen2Service) {
+  constructor(private screenService: Screen2Service, public dialog: MatDialog) {
     this.users = this.screenService.returnUsers();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalDeleteComponent, {
+      width: '250px',
+      data: this.users
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 
   ngOnInit() {}
@@ -44,6 +57,9 @@ export class Screen2Component implements OnInit {
       this.users = this.users.filter(value => value.id !== id);
     })
     */
-   this.users = this.screenService.deleteListUsers(id);
+   //this.openDialog(id);
+   this.screenService.setDeleteId(id);
+   this.openDialog();
+   //this.users = this.screenService.deleteListUsers(id);
   }
 }

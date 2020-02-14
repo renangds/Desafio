@@ -34,10 +34,11 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
         MatMenuModule,
         MatListModule,
         TranslateModule,
-        MatTableModule
+        MatTableModule,
+        MatDialogModule
     ],
     declarations: [Screen2Component, LayoutComponent, NavComponent, TopnavComponent, SidebarComponent, ModalDeleteComponent, ],
-    entryComponents: [],
+    entryComponents: [ModalDeleteComponent],
     providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}]
 
 })
