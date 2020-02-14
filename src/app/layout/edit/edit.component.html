@@ -1,14 +1,13 @@
 <div class="login-page">
     <div class="content">
-        <!-- <h1 class="app-name">Sb Admin Material</h1> -->
         <form class="login-form" fxFlex  >
             <div class="text-center">
-                <h2 class="app-name">Cadastro de Usuário</h2>
+                <h2 class="app-name">Edição de Usuário</h2>
             </div>
             <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput [(ngModel)]="name" placeholder="Nome" type="text" name="name">
+                        <input matInput [(ngModel)]="name" placeholder="Nome" type="text" name="name" [disabled]='true'>
                     </mat-form-field>
                 </div>
             </div>
@@ -21,7 +20,7 @@
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
-                    <button style='margin-bottom: 5px;' mat-raised-button color="primary" class="w-100" [disabled]="job === '' || name === ''" (click)="registerUser()">Cadastrar</button>
+                    <button style='margin-bottom: 5px;' mat-raised-button color="primary" class="w-100" [disabled]="job === ''" (click)="editJobUser()">Editar</button>
                 </div>
             </div>
 

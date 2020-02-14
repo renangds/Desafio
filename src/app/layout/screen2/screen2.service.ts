@@ -4,7 +4,6 @@ import {User} from 'src/app/Model/user';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })

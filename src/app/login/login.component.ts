@@ -11,32 +11,33 @@ import {Login} from '../Model/login';
 export class LoginComponent implements OnInit {
     user: string;
     password: string;
-    loginData: Login;
+    loginData: Login[];
+    token: string;
 
     constructor(private router: Router, private loginService: LoginService) {
         this.user = '';
         this.password = '';
+        this.token = '';
     }
 
     ngOnInit() {}
 
     public setLogin(){
-        //console.log(this.user, this.password);
-       // console.log(JSON.stringify({email: this.user, password: this.password}));
+       this.loginData = [{email: this.user, password: this.password}];
+        console.log(this.user, this.password);
 
-        
-        this.loginService.getLogin(JSON.stringify({email: 'cityslicka', password: 'eve.holt@reqres.in'})).subscribe(
+        this.loginService.getLogin(this.loginData[0]).subscribe(
             res => {
                 console.log(res);
+                this.token = res['token'];
+                sessionStorage.setItem('gottenToken', res['token']);
             }
         )
-        
-        //console.log(this.loginService.getLogin(JSON.stringify({"email": this.user, "password": this.password})));
     }
 
     onLogin() {
         this.setLogin();
         localStorage.setItem('isLoggedin', 'true');
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/screen1']);
     }
 }

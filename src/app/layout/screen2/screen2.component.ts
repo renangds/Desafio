@@ -11,7 +11,7 @@ import {User} from 'src/app/Model/user';
 export class Screen2Component implements OnInit {
 
   public users: User[];
-  public columns: string[] = ['Id', 'Nome Completo', 'Foto', 'Editar'];
+  public columns: string[] = ['Id', 'Nome Completo', 'Foto', 'Opções'];
 
   constructor(private screenService: Screen2Service) {
     this.users = this.screenService.returnUsers();

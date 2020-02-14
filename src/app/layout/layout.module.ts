@@ -8,7 +8,9 @@ import {
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MAT_DIALOG_DEFAULT_OPTIONS
 } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -17,6 +19,8 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { Screen2Component } from './screen2/screen2.component';
+import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
+//import { EditComponent } from './edit/edit.component';
 
 @NgModule({
     imports: [
@@ -32,7 +36,9 @@ import { Screen2Component } from './screen2/screen2.component';
         TranslateModule,
         MatTableModule
     ],
-    declarations: [Screen2Component, LayoutComponent, NavComponent, TopnavComponent, SidebarComponent, ]
+    declarations: [Screen2Component, LayoutComponent, NavComponent, TopnavComponent, SidebarComponent, ModalDeleteComponent, ],
+    entryComponents: [],
+    providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}]
 
 })
 export class LayoutModule { }
