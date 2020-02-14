@@ -24,20 +24,13 @@ export class LoginComponent implements OnInit {
 
     public setLogin(){
        this.loginData = [{email: this.user, password: this.password}];
-        console.log(this.user, this.password);
 
-        this.loginService.getLogin(this.loginData[0]).subscribe(
-            res => {
-                console.log(res);
-                this.token = res['token'];
-                sessionStorage.setItem('gottenToken', res['token']);
-            }
-        )
+        this.loginService.getToken(this.loginData[0]);
     }
 
     onLogin() {
         this.setLogin();
-        localStorage.setItem('isLoggedin', 'true');
+        //localStorage.setItem('isLoggedin', 'true');
         this.router.navigate(['/screen1']);
     }
 }

@@ -9,7 +9,9 @@ import {User} from 'src/app/Model/user';
 export class Screen1Service {
   url = 'https://reqres.in/api/users';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    
+   }
 
   public createUser(user: User){
     return this.httpClient.post(this.url, user);

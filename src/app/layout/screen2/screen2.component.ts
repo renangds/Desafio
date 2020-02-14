@@ -17,11 +17,16 @@ export class Screen2Component implements OnInit {
     this.users = this.screenService.returnUsers();
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.users = this.users.filter((element, index, array) =>
+      element.id == Number.parseInt(filterValue)
+    );
+  }
 
   public getUsers(){
     /*
